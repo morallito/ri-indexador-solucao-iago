@@ -15,10 +15,10 @@ class Index:
 
     def index(self, term: str, doc_id: int, term_freq: int):
         if term not in self.dic_index:
-            int_term_id = None
+            int_term_id = len(self.dic_index) + 1
             self.dic_index[term] = self.create_index_entry(int_term_id)
         else:
-            int_term_id = None
+            int_term_id = self.get_term_id(term=term)
 
         self.add_index_occur(self.dic_index[term], doc_id, int_term_id, term_freq)
 
